@@ -1,3 +1,5 @@
+#CREDITS TO STACKOVERFLOW COMMUNITY
+
 
 clean_tweets<-function(tweets){
 require(tm)  
