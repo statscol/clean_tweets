@@ -1,6 +1,7 @@
 
 clean_tweets<-function(tweets){
 require(tm)  
+require(stringr)
   
   unwanted_array = list(    'À'='A', 'Á'='A', 'Â'='A', 'Ã'='A', 'Ä'='A', 'Å'='A', 'Æ'='A', 'Ç'='C', 'È'='E', 'É'='E',
                             'Ê'='E', 'Ë'='E', 'Ì'='I', 'Í'='I', 'Î'='I', 'Ï'='I', 'Ñ'='N', 'ñ'='n','Ò'='O', 'Ó'='O', 'Ô'='O', 'Õ'='O', 'Ö'='O', 'Ø'='O', 'Ù'='U',
@@ -37,8 +38,9 @@ require(tm)
   aux <- tolower(aux)
   aux <- gsub("\\b[[:alpha:]]{16,}\\b", "", aux)
   aux <- gsub('\\b\\w{1,2}\\b','',aux)
+  aux <- str_squish(aux)
   
-  #aux <- gsub("  ", " ", aux)
+  
   return(aux)
   
 }
